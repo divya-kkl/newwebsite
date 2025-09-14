@@ -4,269 +4,6 @@
   <meta charset="UTF-8" />
   <title>Signup - Login App</title>
   <style>
-   /* General page styling */
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f6f8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-/* Centered container */
-form {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-/* Heading */
-h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 1.5rem;
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
-/* Input fields */
-input {
-  padding: 0.75rem 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border 0.3s;
-}
-
-input:focus {
-  outline: none;
-  border-color: #4a90e2;
-  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
-}
-
-/* Button styling */
-button {
-  background: #4a90e2;
-  color: #fff;
-  font-size: 1rem;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background: #357abd;
-}
-
-/* Message text */
-#message {
-  text-align: center;
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  color: #555;
-}
-
-  </style>
-</head>
-<body>
-  <h2 style="text-align:center">Signup</h2>
-
-  <form id="signupForm" autocomplete="off">
-    <input name="name" placeholder="Name" required />
-    <input name="email" type="email" placeholder="Email" required />
-    <input name="password" type="password" placeholder="Password" required />
-    <button type="submit">Save User</button>
-  </form>
-
-  <p id="message"></p>
-  < <p style="text-align:center"><a href="/admin.html">Go to Admin</a></p> -->
-
-  <!-- <script>
-    const form = document.getElementById('signupForm');
-    const msg = document.getElementById('message');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      msg.textContent = 'Saving...';
-
-      const payload = {
-        name: form.name.value,
-        email: form.email.value,
-        password: form.password.value
-      };
-
-      try {
-        const res = await fetch('/api/users', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        if (res.ok) {
-        //   msg.style.color = 'green';
-        //   msg.textContent = 'User saved! Check Admin page.';
-          form.reset();
-        } else {
-          const body = await res.json().catch(()=>({}));
-          msg.style.color = 'red';
-          msg.textContent = body.error || 'Failed to save user';
-        }
-      } catch (err) {
-        msg.style.color = 'red';
-        msg.textContent = 'Network error: ' + err.message;
-      }
-    });
-  </script>
-</body>
-</html>
- --> 
-
-
- <!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Signup - Login App</title>
-  <style>
-   /* General page styling */
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f6f8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-/* Centered container */
-form {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-/* Heading */
-h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 1.5rem;
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
-/* Input fields */
-input {
-  padding: 0.75rem 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border 0.3s;
-}
-
-input:focus {
-  outline: none;
-  border-color: #4a90e2;
-  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
-}
-
-/* Button styling */
-button {
-  background: #4a90e2;
-  color: #fff;
-  font-size: 1rem;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background: #357abd;
-}
-
-/* Message text */
-#message {
-  text-align: center;
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  color: #555;
-}
-  </style>
-</head>
-<body>
-  <form id="signupForm" autocomplete="off">
-    <h2>Signup</h2>
-    <input name="name" placeholder="Name" required />
-    <input name="email" type="email" placeholder="Email" required />
-    <input name="password" type="password" placeholder="Password" required />
-    <button type="submit">Save User</button>
-  </form>
-
-  <p id="message"></p>
-
-
-<script>
-const form = document.getElementById('signupForm');
-const msg = document.getElementById('message');
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  msg.textContent = 'Saving...';
-
-  const payload = {
-    name: form.name.value,
-    email: form.email.value,
-    password: form.password.value
-  };
-
-  try {
-    const res = await fetch('/api/users', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-
-    const body = await res.json().catch(()=>({}));
-    if (res.ok) {
-      // ✅ redirect straight to admin
-      window.location.href = '/admin';
-    } else {
-      msg.style.color = 'red';
-      msg.textContent = body.error || 'Failed to save user';
-    }
-  } catch (err) {
-    msg.style.color = 'red';
-    msg.textContent = 'Network error: ' + err.message;
-  }
-});
-</script>
-
-</body>
-</html> -->
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Signup - Login App</title>
-  <style>
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background: #f4f6f8;
@@ -348,51 +85,6 @@ form.addEventListener('submit', async (e) => {
     <p id="message"></p>
     <p class="link">Already have an account? <a href="/login.html">Login</a></p>
   </form>
-
-<!-- <script>
-const form = document.getElementById('signupForm');
-const msg = document.getElementById('message');
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  msg.style.color = 'black';
-  msg.textContent = 'Saving...';
-
-  const payload = {
-    name: form.name.value,
-    email: form.email.value,
-    password: form.password.value
-  };
-
-  try {
-    const res = await fetch('/api/users', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-
-    const body = await res.json().catch(()=>({}));
-if (res.ok) {
-  msg.style.color = 'green';
-  msg.textContent = 'Signup successful! Redirecting...';
-  setTimeout(() => {
-    window.location.href = '/admin';  // ✅ go to /admin after signup
-  }, 1000);
-}
-
-else {
-      msg.style.color = 'red';
-      msg.textContent = body.error || 'Failed to save user';
-    }
-  } catch (err) {
-    msg.style.color = 'red';
-    msg.textContent = 'Network error: ' + err.message;
-  }
-});
-</script> -->
-
-
-
 <script>
 const form = document.getElementById('signupForm');
 const msg = document.getElementById('message');
@@ -431,4 +123,150 @@ form.addEventListener('submit', async (e) => {
 </script>
 
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Signup - Login App</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 1.5rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    input, button {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input {
+      border: 1px solid #ddd;
+      transition: border 0.3s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #4a90e2;
+      box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    }
+
+    button {
+      background: #4a90e2;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #357abd;
+    }
+
+    #message {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .link {
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .link a {
+      color: #4a90e2;
+      text-decoration: none;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <form id="signupForm" autocomplete="off">
+    <h2>Sign Up</h2>
+    <input name="name" placeholder="Name" required />
+    <input name="email" type="email" placeholder="Email" required />
+    <input name="password" type="password" placeholder="Password" required />
+    <button type="submit">Sign Up</button>
+    <p id="message"></p>
+    <p class="link">Already have an account? <a href="/login.html">Login</a></p>
+  </form>
+
+<script>
+const form = document.getElementById('signupForm');
+const msg = document.getElementById('message');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  msg.style.color = '#555';
+  msg.textContent = 'Saving...';
+
+  const payload = {
+    name: form.name.value,
+    email: form.email.value,
+    password: form.password.value
+  };
+
+  try {
+    const res = await fetch('/api/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    const body = await res.json().catch(() => ({}));
+
+    if (res.ok) {
+      msg.style.color = 'green';
+      msg.textContent = 'Signup successful! Redirecting to admin page...';
+      
+      // Redirect after 2 seconds
+      setTimeout(() => {
+        window.location.href = '/admin.html';
+      }, 2000);
+
+    } else {
+      msg.style.color = 'red';
+      msg.textContent = body.error || 'Signup failed';
+    }
+
+  } catch (err) {
+    msg.style.color = 'red';
+    msg.textContent = 'Network error: ' + err.message;
+  }
+});
+</script>
+
+</body>
 </html>
+
