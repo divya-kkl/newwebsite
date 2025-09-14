@@ -858,6 +858,26 @@ input { padding:2px; width:95%; }
 .save-btn { background:#2ecc71; color:white; }
 .cancel-btn { background:#95a5a6; color:white; }
 .add-btn { background:#27ae60; color:white; margin-bottom:10px; }
+
+@media (max-width: 800px) {
+    table, th, td {
+        font-size: 0.9rem; /* slightly smaller text */
+    }
+    
+    input {
+        width: 100%; /* full width inputs on small screens */
+    }
+    
+    .action-btn {
+        padding: 5px 10px; /* slightly larger clickable buttons for touch */
+        margin-bottom: 4px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto; /* horizontal scroll for small screens */
+    }
+}
 </style>
 </head>
 <body>
