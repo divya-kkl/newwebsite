@@ -67,24 +67,44 @@
 
 
 
-export default async function handler(req, res) {
+// export default async function handler(req, res) {
+//   if (req.method === 'POST') {
+//     const { name, email, password } = req.body;
+
+//     // Basic validation
+//     if (!name || !email || !password) {
+//       return res.status(400).json({ error: 'All fields are required' });
+//     }
+
+//     // Here you can save the user to a database
+//     // For demo, just return success
+//     return res.status(200).json({ message: 'User created' });
+//   } else {
+//     res.setHeader('Allow', ['POST']);
+//     return res.status(405).json({ error: `Method ${req.method} not allowed` });
+//   }
+// }
+// const res = await fetch(`${window.location.origin}/api/users`, {
+//   method: 'POST',
+//   ...
+// });
+
+
+export default function handler(req, res) {
   if (req.method === 'POST') {
     const { name, email, password } = req.body;
 
-    // Basic validation
     if (!name || !email || !password) {
-      return res.status(400).json({ error: 'All fields are required' });
+      return res.status(400).json({ error: 'All fields are required.' });
     }
 
-    // Here you can save the user to a database
-    // For demo, just return success
-    return res.status(200).json({ message: 'User created' });
+    // For demo purposes, just log to console
+    console.log('New user signup:', { name, email, password });
+
+    // In real app: save to database here
+    return res.status(200).json({ message: 'User created successfully!' });
   } else {
     res.setHeader('Allow', ['POST']);
-    return res.status(405).json({ error: `Method ${req.method} not allowed` });
+    res.status(405).json({ error: `Method ${req.method} not allowed` });
   }
 }
-const res = await fetch(`${window.location.origin}/api/users`, {
-  method: 'POST',
-  ...
-});
