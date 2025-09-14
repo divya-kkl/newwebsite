@@ -50,3 +50,18 @@ export default async function handler(req, res) {
   res.setHeader('Allow', ['GET', 'POST']);
   res.status(405).json({ error: `Method ${req.method} not allowed` });
 }
+const res = await fetch('/api/users', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(payload)
+});
+
+const body = await res.json().catch(()=>({}));
+if (res.ok) {
+  msg.style.color = 'green';
+  msg.textContent = 'Signup successful! ✅ Now go to /admin to open the admin page.';
+} else {
+  msg.style.color = 'red';
+  msg.textContent = body.error || 'Signup failed';
+}
+
